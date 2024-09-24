@@ -1,0 +1,15 @@
+git branch 작업공간 확인
+git branch (이름) 작업공간 생성
+git branch --delete (이름) 작업공간 삭제 
+git switch (이름) 작업공간 바꾸기 //파일들 저장이 다 되야함
+git merge (이름) 작업공간 합치기
+git reset --hard (로그의 코드) 
+git checkout -p (작업공간) (이름)
+git log --oneline --all
+git log --oneline --graph --all
+충돌
+git reset --hard (로그의 코드)   완전 리셋
+git reset --soft (로그의 코드)   add까지만 되돌림
+git reset --mixed (로그의 코드)
+
+revert  log를 유지한다. 원하는 시점으로 이동한다.
