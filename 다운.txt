@@ -1,0 +1,97 @@
+git clone (주소) git허브에서 파일 다운
+git pull 저장이 안되 있으면 받는것 불가능
+git push -uf origin master 강제로 올리기
+git push -u origin (브런치 이름)
+git push -f
+git push origin (브런치 이름)  원격지에 등록
+git push origin -d (브런치 이름) 원격지에서 삭제
+
+branch -r
+branch -a 모두 보기
+
+-d 삭제
+
+예시)
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang (master)
+$ git init	새로 초기화
+Initialized empty Git repository in D:/0.핀테크/git_test/bang/.git/
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang (master)
+$ git remote add origin https://github.com/sodam0910/practice_sd.git	원격지와 연결
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang (master)
+$ git clone https://github.com/sodam0910/practice_sd.git		원격지에서 파일 받기
+Cloning into 'practice_sd'...
+remote: Enumerating objects: 33, done.
+remote: Counting objects: 100% (33/33), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 33 (delta 5), reused 30 (delta 2), pack-reused 0 (from 0)
+Receiving objects: 100% (33/33), done.
+Resolving deltas: 100% (5/5), done.
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang (master)
+$ cd /d/0.핀테크/git_test/bang/practice_sd	경로이동
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (master)
+$ git branch bang	브랜치 생성
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (master)
+$ git switch bang	브랜치로 이동
+Switched to branch 'bang'
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (bang)
+$ touch system.txt	텍스트 파일 생성
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (bang)
+$ vi system.txt	텍스트 파일 작성
+	
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (bang)
+$ git add ./ 
+warning: in the working copy of 'system.txt', LF will be replaced by CRLF the next time Git touches it
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (bang)
+$ git add --all
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (bang)
+$ git commit -m bang작업완료
+[bang 234855d] bang작업완료
+ 1 file changed, 1 insertion(+)
+ create mode 100644 system.txt
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (bang)
+$ git switch master		마스터로 이동 
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (master)
+$ git merge bang bang에서 마스터로 내용 공유
+Updating b74af51..234855d
+Fast-forward
+ system.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 system.txt
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (master)
+$ vi main_project.txt	텍스트 작성
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (master)
+$ git add main_project.txt	
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (master)
+$ git commit -m main_project.txt
+[master 906260e] main_project.txt
+ 1 file changed, 1 insertion(+)
+
+IT@DESKTOP-6HIMC6A MINGW64 /d/0.핀테크/git_test/bang/practice_sd (master)
+$ git push -u origin master	원격지로 업데이트 하기
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 614 bytes | 614.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/sodam0910/practice_sd.git
+   b74af51..906260e  master -> master
+branch 'master' set up to track 'origin/master'.
